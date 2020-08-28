@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>hb_pkgs</name>
+  <version>0.0.0</version>
+  <description>ROS packages for hummingbird simulation and hardware</description>
+
+  <maintainer email="daniel.p.koch@gmail.com">Daniel Koch</maintainer>
+
+  <author email="daniel.p.koch@gmail.com">Daniel Koch</author>
+
+  <license>BSD</license>
+
+  <url type="repository">https://magiccvs.byu.edu/gitlab/hummingbird/hb</url>
+  <url type="bugtracker">https://magiccvs.byu.edu/gitlab/hummingbird/hb/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>hb_common</exec_depend>
+  <exec_depend>hb_msgs</exec_depend>
+  <exec_depend>hb_ros_driver</exec_depend>
+  <exec_depend>hb_viz</exec_depend>
+
+  <export>
+    <metapackage/>
+    <architecture_independent/>
+  </export>
+</package>

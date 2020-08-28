@@ -1,0 +1,67 @@
+# The Hummingbird is broken down into three parts.
+# 1) Bird: the head, rotors, and rolling shaft
+# 2) Arm assembly: the pitching body
+# 3) Yaw Turning Block Assembly: the portion of the hummingbird that yaws
+# The numbers on the parameters indicate which part they are associated with.
+# Ex l1 is a length associated with the Bird.
+# When the roll pitch and yaw angles are all zero, the position of the center
+# of mass of m1 is (l1,0,0)', the position of the center of mass of m2 is
+# (l2,0,0)', and the position of the center of amss of m3 is (l3x,l3y,l3z)'.
+# The distance from the center of rotation to the head is lT and the distance
+# from the cneter of the head to the rotors is d
+
+
+# lengths (meters)
+l1:   0.247
+l2:  -0.039
+l3x: -0.039
+l3y: -0.007
+l3z:  0.018
+lT:   0.355
+d:    0.12
+
+# mass (Kg)
+m1: 0.108862
+m2: 0.4717
+m3: 0.1905
+
+# Damping coefficients
+Bphi: 0.0
+Bth:  0.0
+Bpsi: 0.0
+
+# Moments of inertia (Kg/m^2)
+J1x: 0.000189
+J1y: 0.001953
+J1z: 0.001894
+J2x: 0.00231
+J2y: 0.003274
+J2z: 0.003416
+J3x: 0.0002222
+J3y: 0.0001956
+J3z: 0.000027
+
+# PWM gain
+km: 1               # found in lab4. TODO: CHANGE FOR NEW HARDWARE #5.3
+
+# gravity (m/s^2)
+g: 9.81
+
+# Sensor information and angle limits
+sigma_gyro:  8.7266e-5   #
+sigma_pixel: 0.05        #
+theta_max:   0.5         # RAD
+theta_min:  -0.5         # RAD
+psi_max:     1.4         # RAD
+psi_min:    -1.4         # RAD
+phi_max:     0.65        # RAD
+phi_min:    -0.65        # RAD
+
+
+
+# Disturbances
+disturbances: true        # If true, a constant disturbance will be added to dynamics to test the integrator in PID control.
+disturbance_percent: 0.2   # Indicates how large the maximum disturbances are with 1 being 100 percent and 0 being 0 percent of the ideal value.
+
+# Callback Rate         The rate in hz for each update
+dynamics_rate: 150      # How fast the dynamics are updated. Simulation only

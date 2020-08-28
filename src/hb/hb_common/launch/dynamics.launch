@@ -1,0 +1,15 @@
+<launch>
+  <arg name="ta" default="false"/>
+
+  <arg name="package" default="hb_ta" if="$(arg ta)"/>
+  <arg name="package" default="hb_student" unless="$(arg ta)"/>
+
+  <rosparam command="load" file="$(find hb_ta)/param/hb.yml" ns="hummingbird" if="$(arg ta)"/>
+  <rosparam command="load" file="$(find hb_student)/param/hb.yml" ns="hummingbird" unless="$(arg ta)"/>
+
+  <node pkg="$(arg package)" type="dynamics.py" name="dynamics" required="true"/>
+  <node pkg="hb_common" type="pre_compiled_controller" name="pre_compiled_controller"/>
+
+  <include file="$(find hb_viz)/launch/visualize.launch"/>
+
+</launch>

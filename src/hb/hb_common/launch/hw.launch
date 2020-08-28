@@ -1,0 +1,22 @@
+<launch>
+  <arg name="ta" default="false"/>
+  <arg name="lab" default=""/>
+  <arg name="run_control" default="true"/>
+
+  <arg name="package" default="hb_ta" if="$(arg ta)"/>
+  <arg name="package" default="hb_student" unless="$(arg ta)"/>
+
+  <rosparam command="load" file="$(find hb_ta)/param/hb.yml" ns="hummingbird" if="$(arg ta)"/>
+  <rosparam command="load" file="$(find hb_student)/param/hb.yml" ns="hummingbird" unless="$(arg ta)"/>
+
+  <node pkg="hb_ros_driver" type="node" name="hb_ros_driver" required="true"/>
+
+  <group if="$(arg run_control)">
+    	 <!--<node pkg="$(arg package)" type="controller_4.py" name="controller" required="true"/>-->
+         <node pkg="$(arg package)" type="controller_full_state.py" name="controller" required="true"/>
+	 <!-- <node pkg="hb_common" type="pre_compiled_controller" name="pre_compiled_controller"/> -->
+  </group>
+
+  <include file="$(find hb_viz)/launch/visualize.launch"/>
+
+</launch>

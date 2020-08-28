@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>hb_viz</name>
+  <version>0.0.0</version>
+  <description>The hb_viz package</description>
+
+
+  <maintainer email="pet09034@byu.edu">Mark Petersen</maintainer>
+  <author email="dpkoch@todo.todo">dpkoch</author>
+
+
+  <license>TODO</license>
+
+
+  <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+  <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+
+
+  <depend condition="$ROS_VERSION == 1">roscpp</depend>
+  <depend condition="$ROS_VERSION == 1">rviz</depend>
+  <depend condition="$ROS_VERSION == 1">sensor_msgs</depend>
+  <depend condition="$ROS_VERSION == 1">std_msgs</depend>
+  <depend condition="$ROS_VERSION == 1">tf</depend>
+  <depend condition="$ROS_VERSION == 1">urdf</depend>
+  <depend condition="$ROS_VERSION == 1">hb_msgs</depend>
+
+
+  <export>
+
+    <build_type condition="$ROS_VERSION == 1">catkin</build_type>
+    <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+
+    <rviz plugin="${prefix}/plugin_description.xml"/>
+  </export>
+</package>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>hb_student</name>
+  <version>0.0.0</version>
+  <description>Student solution templates for the hummingbird labs</description>
+
+  <maintainer email="daniel.p.koch@gmail.com">Daniel Koch</maintainer>
+
+  <license>BSD</license>
+
+  <url type="repository">https://magiccvs.byu.edu/gitlab/hummingbird/hb_student</url>
+  <url type="bugtracker">https://magiccvs.byu.edu/gitlab/hummingbird/hb_student/issues</url>
+
+  <author email="daniel.p.koch@gmail.com">Daniel Koch</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>hb_common</depend>
+  <depend>hb_msgs</depend>
+
+</package>

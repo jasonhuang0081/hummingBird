@@ -1,0 +1,7 @@
+<launch>
+  <arg name="package" default="hb_student"/>
+
+  <rosparam command="load" file="$(find hb_student)/param/hb.yml" ns="hummingbird"/>
+
+  <node pkg="$(arg package)" type="test_dynamics.py" name="dynamics" required="true" output="screen"/>
+</launch>

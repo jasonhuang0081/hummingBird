@@ -1,0 +1,10 @@
+<library path="lib/libhb_viz">
+  <class name="hb_viz/Hummingbird"
+         type="hb_viz::HummingbirdPanel"
+         base_class_type="rviz::Panel">
+    <description>
+      A panel widget for interacting with the Hummingbird
+    </description>
+  </class>
+
+</library>

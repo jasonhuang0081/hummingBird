@@ -1,0 +1,64 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="hummingbird">
+
+  <!-- materials -->
+  <material name="plastic">
+    <color rgba="0.4 0.4 0.4 1"/>
+  </material>
+
+  <material name="metal">
+    <color rgba="0.8 0.8 0.8 1"/>
+  </material>
+
+  <!-- dimensions -->
+  <xacro:property name="stand_offset" value="0.277114"/>
+
+  <!-- macros -->
+  <xacro:macro name="use_mesh" params="name material origin">
+    <visual>
+      <geometry>
+        <mesh filename="package://hb_viz/meshes/${name}.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin xyz="${origin}" rpy="1.570796 0 1.570796"/>
+      <material name="${material}"/>
+    </visual>
+  </xacro:macro>
+
+  <!-- links -->
+  <link name="base_link">
+    <xacro:use_mesh name="stand" material="metal" origin="0 0 ${stand_offset}"/>
+  </link>
+
+  <link name="turnblock">
+    <xacro:use_mesh name="turnblock" material="metal" origin="0 0 0"/>
+  </link>
+
+  <link name="arm">
+    <xacro:use_mesh name="arm" material="plastic" origin="0 0 0"/>
+  </link>
+
+  <link name="head">
+    <xacro:use_mesh name="head" material="plastic" origin="0 0 0"/>
+  </link>
+
+  <!-- joints -->
+  <joint name="yaw_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="turnblock"/>
+    <origin xyz="0 0 ${stand_offset}" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="pitch_joint" type="continuous">
+    <parent link="turnblock"/>
+    <child link="arm"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="roll_joint" type="continuous">
+    <parent link="arm"/>
+    <child link="head"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+</robot>

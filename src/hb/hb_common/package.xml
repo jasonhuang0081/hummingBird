@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>hb_common</name>
+  <version>0.0.0</version>
+  <description>The hb_common package</description>
+
+  <maintainer email="daniel.p.koch@gmail.com">Daniel Koch</maintainer>
+
+  <license>BSD</license>
+
+  <url type="repository">https://magiccvs.byu.edu/gitlab/hummingbird/hb</url>
+  <url type="bugtracker">https://magiccvs.byu.edu/gitlab/hummingbird/hb/issues</url>
+
+  <author email="daniel.p.koch@gmail.com">Daniel Koch</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>hb_msgs</depend>
+
+</package>
